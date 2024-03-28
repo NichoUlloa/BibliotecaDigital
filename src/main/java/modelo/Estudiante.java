@@ -1,4 +1,5 @@
 package modelo;
+
 public class Estudiante extends Usuario{
     // Atributos
     private String carrera;

@@ -127,7 +127,6 @@ public class Main {
         biblioteca.extenderPlazoPrestamo(prestamo2, LocalDate.now().plusDays(14));
         biblioteca.imprimirPrestamos(); // se debe ver el plazo extendido en 7 dias
 
-
         // usar metodo enviarNotificacionReservaDisponible
         // proximanete
     }
