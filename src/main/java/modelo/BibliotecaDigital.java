@@ -48,28 +48,26 @@ public class BibliotecaDigital {
     }
 
     // Métodos
-    // * La biblioteca debe poder gestionar diferentes tipos de recursos digitales, incluyendo libros, revistas académicas y tesis de grado.
-    // Metodo para agregar recursoDigital a la lista de recursosDigitales y registrar en historial.
+    // Metodo agregarRecursoDigital
     public void agregarRecursoDigital(RecursoDigital recursoDigital) {
         recursosDigitales.add(recursoDigital);
         guardarHistorialRecursoDigital(recursoDigital);
     }
-    // Metodo para eliminar recursoDigital de la lista de recursosDigitales
+    // Metodo eliminarRecursoDigital
     public void eliminarRecursoDigital(RecursoDigital recursoDigital) {
         recursosDigitales.remove(recursoDigital);
     }
 
-    // Metodo para agregar usuario a la lista de usuarios
+    // Metodo agregarUsuario
     public void agregarUsuario(Usuario usuario) {
         usuarios.add(usuario);
     }
-    // Metodo para eliminar usuario de la lista de usuarios
+    // Metodo eliminarUsuario
     public void eliminarUsuario(Usuario usuario) {
         usuarios.remove(usuario);
     }
 
-    // * Cada préstamo debe registrar el recurso, el usuario que lo solicita, la fecha de préstamo y la fecha de devolución.
-    // Metodo para registrar un prestamo, si no se encuentra el recurso retorna mensaje notificando que no se encontro
+    // Metodo registrarPrestamo
     public Prestamo registrarPrestamo(RecursoDigital recursoDigital, Usuario usuario, LocalDate fechaPrestamo, LocalDate fechaDevolucion) {
         String mensaje = "No se encontró el recurso";
         boolean recursoEncontrado = false;
@@ -87,8 +85,7 @@ public class BibliotecaDigital {
         return null;
     }
 
-    // * El sistema debe permitir extender el plazo de préstamo bajo ciertas condiciones.
-    // metodo extenderPlazoPrestamo para extender el plazo de prestamo de un prestamo registrado 5 dias mas
+    // Metodo extenderPlazoPrestamo
     public void extenderPlazoPrestamo(Prestamo prestamo, LocalDate nuevaFechaDevolucion) {
         for (Prestamo prestamoRegistrado : prestamos) {
             if (prestamoRegistrado.equals(prestamo)) {
@@ -97,9 +94,7 @@ public class BibliotecaDigital {
         }
     }
 
-    // * Los usuarios deben poder buscar recursos por título, autor, año de publicación y clasificación temática.
-    // * Los profesores tienen privilegios para acceder a ciertos recursos exclusivos.
-    // metodo filtrar usuarios por usuario Usuario
+    // Metodo filtrarUsuario
     public List<RecursoDigital> filtrarUsuario(List<RecursoDigital> recursosDigitales, Usuario usuario) {
         List<RecursoDigital> recursosFiltrados = new ArrayList<RecursoDigital>();
         for (RecursoDigital recurso : recursosDigitales) {
@@ -116,10 +111,7 @@ public class BibliotecaDigital {
         return recursosFiltrados;
     }
 
-    // * Los usuarios del sistema se dividen en estudiantes y profesores. Todos los usuarios deben poder buscar recursos, realizar préstamos y devolverlos.
-    // ** Los profesores tienen privilegios para acceder a ciertos recursos exclusivos.
-
-    // metodo buscar recursoDigital por titulo
+    // Metodo buscarRecursoDigitalPorTitulo
     public List<RecursoDigital> buscarRecursosPorTitulo(String titulo, Usuario usuario) {
         List<RecursoDigital> recursosEncontrados = new ArrayList<RecursoDigital>();
         for (RecursoDigital recurso : recursosDigitales) {
@@ -136,7 +128,7 @@ public class BibliotecaDigital {
         }
         return recursosEncontrados;
     }
-    // metodo buscar recursoDigital por autor
+    // Metodo buscarRecursoDigitalPorAutor
     public List<RecursoDigital> buscarRecursosPorAutor(String autor, Usuario usuario) {
         List<RecursoDigital> recursosEncontrados = new ArrayList<RecursoDigital>();
         for (RecursoDigital recurso : recursosDigitales) {
@@ -155,7 +147,7 @@ public class BibliotecaDigital {
         }
         return recursosEncontrados;
     }
-    // metodo buscar recursoDigital por año de publicacion
+    // Metodo buscarRecursoDigitalPorAnioPublicacion
     public List<RecursoDigital> buscarRecursosPorAnioPublicacion(int anioPublicacion, Usuario usuario) {
         List<RecursoDigital> recursosEncontrados = new ArrayList<RecursoDigital>();
         for (RecursoDigital recurso : recursosDigitales) {
@@ -172,7 +164,7 @@ public class BibliotecaDigital {
         }
         return recursosEncontrados;
     }
-    // metodo buscar recursoDigital por clasificacion tematica
+    // Metodo buscarRecursoDigitalPorClasificacionTematica
     public List<RecursoDigital> buscarRecursosPorClasificacionTematica(ClasificacionTematica clasificacionTematica, Usuario usuario) {
         List<RecursoDigital> recursosEncontrados = new ArrayList<RecursoDigital>();
         for (RecursoDigital recurso : recursosDigitales) {
@@ -190,8 +182,7 @@ public class BibliotecaDigital {
         return recursosEncontrados;
     }
 
-    // * El sistema debe ofrecer recomendaciones de lectura basadas en las preferencias y el historial de préstamos de cada usuario.
-    // Metodo para ofrecer recomendaciones de lecturas registradas entregando alguna ramdom de la lista de recursosDigitales usar metodo filtrarUsuario para no ofrecer recursos exclusivos a estudiantes
+    // Metodo ofrecerRecomendacionesLectura
     public void ofrecerRecomendacionesLectura(Usuario usuario) {
         List<RecursoDigital> recursosDisponibles = filtrarUsuario(recursosDigitales, usuario);
 
@@ -203,25 +194,24 @@ public class BibliotecaDigital {
         }
     }
 
-    // metodo realizar prestamo
+    // Metodo realizarPrestamo
     public void realizarPrestamo(Prestamo prestamo) {
         prestamos.add(prestamo);
     }
 
-    // metodo devolver recurso
+    // Metodo devolverRecurso
     public void devolverRecurso(Prestamo prestamo) {
         prestamos.remove(prestamo);
     }
 
-    // metodo imprimir prestamos
+    // Metodo imprimirPrestamos
     public void imprimirPrestamos() {
         for (Prestamo prestamo : prestamos) {
             prestamo.imprimirPrestamo();
         }
     }
 
-    // * El sistema debe enviar notificaciones a los usuarios para recordarles la fecha de devolución de los recursos prestados y alertar sobre la disponibilidad de recursos reservados.
-    // Metodo para enviar notificacion de devolucion con la fecha de devolucion revisando la lista de prestamos que estan registrados y sino esta registrado el prestamo retorna null
+    // Metodo enviarNotificacionDevolucion
     public void enviarNotificacionDevolucion(Prestamo prestamo) {
         boolean prestamoEncontrado = false;
         for (Prestamo prestamoRegistrado : prestamos) {
@@ -240,18 +230,17 @@ public class BibliotecaDigital {
         }
     }
 
-    // metodo enviarNotificacionReservaDisponible
+    // Metodo enviarNotificacionReservaDisponible
     public void enviarNotificacionReservaDisponible() {
     }
 
-    // metodo guardarHistorialRecursoDigital en otra lista ya que la otra se van eliminando los recursos
+    // Metodo guardarHistorialRecursoDigital
     public void guardarHistorialRecursoDigital(RecursoDigital recursoDigital) {
         List<RecursoDigital> historialRecursosDigitales = new ArrayList<RecursoDigital>();
         historialRecursosDigitales.add(recursoDigital);
     }
 
-
-    // Metodo realizarReservaRecursoDigital no disponible creando una lista de reservas, usando la lista de historialRecursosDigitales y filtrando por usuario y registrando las reservas en una lista para luego imprimir
+    // Metodo realizarReservaRecursoDigital
     public void realizarReservaRecursoDigital(Reserva reserva) {
         List<RecursoDigital> recursosDisponibles = filtrarUsuario(recursosDigitales, reserva.getUsuario());
         boolean recursoEncontrado = false;
@@ -267,7 +256,7 @@ public class BibliotecaDigital {
         }
     }
 
-    // Metodo para imprimir lista de reservas realizadas
+    // Metodo imprimirReservas
     public void imprimirReservas() {
         for (Reserva reserva : reservas) {
             reserva.imprimirReserva();

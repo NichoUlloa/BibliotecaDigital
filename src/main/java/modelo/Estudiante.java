@@ -1,5 +1,4 @@
 package modelo;
-
 public class Estudiante extends Usuario{
     // Atributos
     private String carrera;
@@ -30,5 +29,12 @@ public class Estudiante extends Usuario{
     // Métodos
     public String getTipoUsuario() {
         return "Estudiante";
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "Carrera: " + carrera + "\n" +
+                "Intereses: " + String.join(", ", intereses) + "\n";
     }
 }

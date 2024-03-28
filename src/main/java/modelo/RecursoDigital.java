@@ -1,5 +1,4 @@
 package modelo;
-
 public class RecursoDigital {
     // Atributos
     private String titulo;
@@ -51,6 +50,15 @@ public class RecursoDigital {
     }
     public void setClasificacionTematica(ClasificacionTematica clasificacionTematica) {
         this.clasificacionTematica = clasificacionTematica;
+    }
+
+    @Override
+    public String toString() {
+        return "Título: " + titulo + "\n" +
+                "Privilegios de acceso: " + privilegiosAcceso + "\n" +
+                "Autores: " + autores + "\n" +
+                "Año de publicación: " + anioPublicacion + "\n" +
+                "Clasificación temática: " + clasificacionTematica + "\n";
     }
 }
 

@@ -1,6 +1,5 @@
 package modelo;
 import java.time.LocalDate;
-
 public class Prestamo {
     // Atributos
     private LocalDate fechaPrestamo;
@@ -44,7 +43,6 @@ public class Prestamo {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
 
     // Métodos
     // metodo para imprimir prestamo

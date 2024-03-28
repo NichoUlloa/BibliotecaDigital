@@ -18,9 +18,14 @@ public class Profesor extends Usuario{
         this.asignaturas = asignaturas;
     }
 
-    // Metodos
+    // Métodos
     public String getTipoUsuario() {
         return "Profesor";
     }
 
+    @Override
+    public String toString() {
+        return super.toString() +
+                "Asignaturas: " + String.join(", ", asignaturas) + "\n";
+    }
 }

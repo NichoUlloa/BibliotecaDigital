@@ -1,5 +1,4 @@
 package modelo;
-
 public enum ClasificacionTematica {
     INFORMATICA("Informática"), MATEMATICAS("Matemáticas"), FISICA("Física"), QUIMICA("Química"), HISTORIA("Historia");
 
@@ -12,6 +11,7 @@ public enum ClasificacionTematica {
     public String getClasificacionTematica() {
         return clasificacionTematica;
     }
+
     public void setClasificacionTematica(String clasificacionTematica) {
         this.clasificacionTematica = clasificacionTematica;
     }
