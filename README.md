@@ -35,3 +35,4 @@ El sistema debe ofrecer recomendaciones de lectura basadas en las preferencias y
 El sistema debe enviar notificaciones a los usuarios para recordarles la fecha de devolución de los recursos prestados y alertar sobre la disponibilidad de recursos reservados.
 
 ### Diagrama de Clases:
+![BibliotecaDigital](https://github.com/NichoUlloa/BibliotecaDigital/assets/145157325/552c092c-441f-4ece-8f0d-d5cbfb2904a6)
