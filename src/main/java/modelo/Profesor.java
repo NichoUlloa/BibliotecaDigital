@@ -18,7 +18,7 @@ public class Profesor extends Usuario{
         this.asignaturas = asignaturas;
     }
 
-    // Métodos
+    // Metodos
     public String getTipoUsuario() {
         return "Profesor";
     }

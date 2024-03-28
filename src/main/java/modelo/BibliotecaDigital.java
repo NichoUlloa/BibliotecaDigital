@@ -49,7 +49,7 @@ public class BibliotecaDigital {
 
     // Métodos
     // * La biblioteca debe poder gestionar diferentes tipos de recursos digitales, incluyendo libros, revistas académicas y tesis de grado.
-    // Metodo para agregar recursoDigital a la lista de recursosDigitales y registrar en historial
+    // Metodo para agregar recursoDigital a la lista de recursosDigitales y registrar en historial.
     public void agregarRecursoDigital(RecursoDigital recursoDigital) {
         recursosDigitales.add(recursoDigital);
         guardarHistorialRecursoDigital(recursoDigital);
